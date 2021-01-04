@@ -36,28 +36,24 @@ jobs:
         run: |
           make package
       
-      - uses: actions/upload-artifact@v2
-        with:
-          name: rpm-package
-          path: pkg/*.rpm
-          retention-days: 5
+      #- uses: actions/upload-artifact@v2
+      #  with:
+      #    name: rpm-package
+      #    path: pkg/*.rpm
+      #    retention-days: 5
 
       - uses: actions/checkout@v2
         name: Checkout this repo
         with:
-          lfs: true
+          #lfs: true
           path: 'repo'
-
-      - name: Package
-        run: |
-          echo $(ls -apl *)
 
       - name: Commit C7 repo back
         run: |
           sudo apt install createrepo
           cd repo/
-          git lfs install
-          git lfs track "*.rpm"
+          #git lfs install
+          #git lfs track "*.rpm"
           mkdir -p rpm/releases/7/x86_64/
           cp -a ../pkg/*.rpm rpm/releases/7/x86_64/
           createrepo rpm/releases/7/x86_64/
