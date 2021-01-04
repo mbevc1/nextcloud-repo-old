@@ -47,8 +47,12 @@ jobs:
       - uses: actions/checkout@v2
         name: Checkout this repo
         with:
+          lfs: true
           path: 'repo'
       
+      - name: Checkout LFS objects
+        run: git lfs checkout
+
       - name: Package
         run: |
           echo $(ls -apl *)
@@ -60,8 +64,8 @@ jobs:
           mkdir -p rpm/releases/7/x86_64/
           cp -a ../pkg/*.rpm rpm/releases/7/x86_64/
           createrepo rpm/releases/7/x86_64/
-          git add .
+          git lfs add .
           git config --global user.name 'GHA'
           git config --global user.email 'mbevc1@users.noreply.github.com'
           git commit -am "Automated commit"
-          git push
+          git lfs push
