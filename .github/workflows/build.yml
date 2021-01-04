@@ -58,7 +58,7 @@ jobs:
         run: |
           sudo apt install createrepo
           cd repo/
-          git lfs checkout
+          git lfs install
           mkdir -p rpm/releases/7/x86_64/
           cp -a ../pkg/*.rpm rpm/releases/7/x86_64/
           createrepo rpm/releases/7/x86_64/
