@@ -33,11 +33,11 @@ jobs:
         run: |
           make package
       
-      #- uses: actions/upload-artifact@v2
-      #  with:
-      #    name: rpm-package
-      #    path: pkg/*.rpm
-      #    retention-days: 5
+      - uses: actions/upload-artifact@v2
+        with:
+          name: rpm-package
+          path: pkg/*.rpm
+          retention-days: 5
 
   deploy:
     needs: build
@@ -47,14 +47,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         name: Checkout release repo
-        with:
+        #with:
           #lfs: true
-          path: 'repo'
+          #path: 'repo'
 
+      - uses: actions/download-artifact@v2
+        with:
+          name: rpm-package
+          path: pkg/
+    
       - name: Push to C7 repo
         run: |
           sudo apt install createrepo
-          cd repo/
+          #cd repo/
           #git lfs install
           #git lfs track "*.rpm"
           mkdir -p rpm/releases/7/x86_64/
