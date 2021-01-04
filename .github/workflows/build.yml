@@ -39,12 +39,12 @@ jobs:
       #    path: pkg/*.rpm
       #    retention-days: 5
 
-    deploy:
-      needs: build
-      runs-on: ubuntu-latest
-      if: success()
+  deploy:
+    needs: build
+    if: success()
+    runs-on: ubuntu-latest
       
-      steps:
+    steps:
       - uses: actions/checkout@v2
         name: Checkout release repo
         with:
