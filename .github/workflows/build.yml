@@ -24,6 +24,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        name: Checkout packaging repo
         with:
           repository: mbevc1/nextcloud
 
@@ -39,14 +40,14 @@ jobs:
       #    retention-days: 5
 
       - uses: actions/checkout@v2
-        name: Checkout this repo
+        name: Checkout release repo
         with:
           #lfs: true
           path: 'repo'
 
-      - name: Commit C7 repo
+      - name: Push to C7 repo
         run: |
-          apt install createrepo
+          sudo apt install createrepo
           cd repo/
           #git lfs install
           #git lfs track "*.rpm"
