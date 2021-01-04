@@ -6,7 +6,7 @@ Nextcloud RPM repo
 Add repository setting:
 
 ```
-$ sudo vim /etc/yum.repos.d/trivy.repo
+$ sudo vim /etc/yum.repos.d/nextcloud.repo
 [nextcloud]
 name=Nextcloud repository
 baseurl=https://mbevc1.github.io/nextcloud-repo/rpm/releases/$releasever/$basearch/
