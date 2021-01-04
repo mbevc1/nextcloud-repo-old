@@ -49,9 +49,6 @@ jobs:
         with:
           lfs: true
           path: 'repo'
-      
-      #- name: Checkout LFS objects
-      #  run: git lfs checkout
 
       - name: Package
         run: |
@@ -61,6 +58,7 @@ jobs:
         run: |
           sudo apt install createrepo
           cd repo/
+          git lfs checkout
           mkdir -p rpm/releases/7/x86_64/
           cp -a ../pkg/*.rpm rpm/releases/7/x86_64/
           createrepo rpm/releases/7/x86_64/
