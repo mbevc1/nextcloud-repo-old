@@ -57,6 +57,7 @@ jobs:
         run: |
           cd repo/
           cp -a ../pkg .
+          git add .
           git config --global user.name 'GHA'
           git config --global user.email 'mbevc1@users.noreply.github.com'
           git commit -am "Automated commit"
