@@ -53,10 +53,13 @@ jobs:
         run: |
           echo $(ls -apl *)
 
-      - name: Commit back
+      - name: Commit C7 repo back
         run: |
+          sudo apt install createrepo
           cd repo/
-          cp -a ../pkg .
+          mkdir -p rpm/releases/7/x86_64/
+          cp -a ../pkg/*.rpm rpm/releases/7/x86_64/
+          createrepo rpm/releases/7/x86_64/
           git add .
           git config --global user.name 'GHA'
           git config --global user.email 'mbevc1@users.noreply.github.com'
