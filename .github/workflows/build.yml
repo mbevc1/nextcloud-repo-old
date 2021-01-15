@@ -1,8 +1,6 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Pipeline
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
@@ -30,9 +28,11 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Make package
+        env:
+          VERSION: 20.0.5
         run: |
           make package
-      
+
       - uses: actions/upload-artifact@v2
         with:
           name: rpm-package
@@ -43,7 +43,7 @@ jobs:
     needs: build
     if: success()
     runs-on: ubuntu-latest
-      
+
     steps:
       - uses: actions/checkout@v2
         name: Checkout release repo
@@ -55,7 +55,7 @@ jobs:
         with:
           name: rpm-package
           path: pkg/
-    
+
       - name: Push to C7 repo
         run: |
           sudo apt install createrepo
