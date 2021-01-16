@@ -4,7 +4,7 @@ name: Pipeline
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    #branches: [ master ]
     tags: 'v*'
   #pull_request:
   #  branches: [ master ]
@@ -37,7 +37,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Make package
         env:
-          VERSION: 20.0.5
+          VERSION: ${GITHUB_REF#refs/tags/v}
         run: |
           #make package
           exit 1
