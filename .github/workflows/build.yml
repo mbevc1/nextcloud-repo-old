@@ -40,8 +40,8 @@ jobs:
           VERSION: ${GITHUB_REF#refs/tags/v}
         run: |
           echo "Building ${{ env.VERSION }}"
-          #make package
-          exit 1
+          make package
+          #exit 1
 
       - uses: actions/upload-artifact@v2
         with:
