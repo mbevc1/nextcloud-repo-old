@@ -38,11 +38,11 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Make package
         env:
-          VERSION: ${{ env.GITHUB_REF#refs/tags/v}}
+          VERSION: ${{ env.VERSION }}
         run: |
           echo "Building $VERSION"
-          #make package
-          exit 1
+          make package
+          #exit 1
 
       - uses: actions/upload-artifact@v2
         with:
