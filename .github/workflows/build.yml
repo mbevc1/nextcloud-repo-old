@@ -31,8 +31,8 @@ jobs:
         run : |
           echo ${{ github.event.release.tag_name }}
           echo ${{ github.event.ref }}
-          echo ${GITHUB_REF/refs\/tags\//}
-          echo ${GITHUB_REF#refs/tags/}
+          echo ${GITHUB_REF/refs\/tags\/v/}
+          echo ${GITHUB_REF#refs/tags/v}
 
       # Runs a set of commands using the runners shell
       - name: Make package
