@@ -33,11 +33,12 @@ jobs:
           echo ${{ github.event.ref }}
           echo ${GITHUB_REF/refs\/tags\/v/}
           echo ${GITHUB_REF#refs/tags/v}
+          echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
 
       # Runs a set of commands using the runners shell
       - name: Make package
         env:
-          VERSION: ${GITHUB_REF#refs/tags/v}
+          VERSION: "${GITHUB_REF#refs/tags/v}"
         run: |
           echo "Building $VERSION"
           make package
