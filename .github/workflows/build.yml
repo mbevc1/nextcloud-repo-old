@@ -37,8 +37,6 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Make package
-        env:
-          VERSION: "${GITHUB_REF#refs/tags/v}"
         run: |
           echo "Building $VERSION"
           make package
