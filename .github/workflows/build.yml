@@ -39,7 +39,7 @@ jobs:
         env:
           VERSION: ${GITHUB_REF#refs/tags/v}
         run: |
-          echo "Building ${{ env.VERSION }}"
+          echo "Building $VERSION"
           make package
           #exit 1
 
