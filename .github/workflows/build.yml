@@ -26,12 +26,19 @@ jobs:
         with:
           repository: mbevc1/nextcloud
 
+      - name: Get TAG
+        run : |
+          echo ${{ github.event.release.tag_name }}
+          echo ${{ github.event.ref }}
+          echo ${GITHUB_REF/refs\/tags\//}
+
       # Runs a set of commands using the runners shell
       - name: Make package
         env:
           VERSION: 20.0.5
         run: |
-          make package
+          #make package
+          exit 1
 
       - uses: actions/upload-artifact@v2
         with:
