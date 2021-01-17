@@ -58,7 +58,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         name: Checkout release repo
-        #with:
+        with:
+          ref: 'master'
+          fetch-depth: '0'
           #lfs: true
           #path: 'repo'
 
