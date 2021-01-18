@@ -60,7 +60,7 @@ jobs:
         name: Checkout release repo
         with:
           ref: 'master'
-          fetch-depth: '0'
+          #fetch-depth: '0'
           #lfs: true
           #path: 'repo'
 
