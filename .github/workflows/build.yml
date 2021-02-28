@@ -71,6 +71,7 @@ jobs:
 
       - name: Push to C7 repo
         run: |
+          sudo apt update
           sudo apt install createrepo
           #cd repo/
           #git lfs install
