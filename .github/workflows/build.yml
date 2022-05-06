@@ -10,7 +10,7 @@ on:
   #  branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -22,7 +22,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         name: Checkout packaging repo
         with:
           repository: mbevc1/nextcloud
@@ -44,7 +44,7 @@ jobs:
           make package
           #exit 1
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: rpm-package
           path: pkg/*.rpm
@@ -53,10 +53,10 @@ jobs:
   deploy:
     needs: build
     if: success()
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         name: Checkout release repo
         with:
           ref: 'main'
@@ -64,7 +64,7 @@ jobs:
           #lfs: true
           #path: 'repo'
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: rpm-package
           path: pkg/
