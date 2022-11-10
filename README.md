@@ -12,7 +12,7 @@ Add repository setting:
 $ sudo vim /etc/yum.repos.d/nextcloud.repo
 [nextcloud]
 name=Nextcloud repository
-baseurl=https://mbevc1.github.io/nextcloud-repo/rpm/releases/$releasever/$basearch/
+baseurl=http://nc.bevc.net/releases/$releasever/$basearch/
 gpgcheck=0
 enabled=1
 $ sudo yum -y update
