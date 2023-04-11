@@ -1,3 +1,5 @@
+:warning: This have been moved to https://github.com/mbevc1/nextcloud-repo
+
 [![Pipeline](https://github.com/mbevc1/nextcloud-repo/actions/workflows/build.yml/badge.svg)](https://github.com/mbevc1/nextcloud-repo/actions/workflows/build.yml)
 [![pages-build-deployment](https://github.com/mbevc1/nextcloud-repo/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/mbevc1/nextcloud-repo/actions/workflows/pages/pages-build-deployment)
 
